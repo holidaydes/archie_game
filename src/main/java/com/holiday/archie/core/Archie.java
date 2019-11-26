@@ -37,7 +37,7 @@ public final class Archie extends Game {
     
 	@Override
 	public void create() {
-		generator = new FreeTypeFontGenerator(Gdx.files.internal("res/fonts/archie.ttf"));
+		generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/archie.ttf"));
 		parameter = new FreeTypeFontParameter();
 		parameter.size = 28;
 		font36 = generator.generateFont(parameter);

@@ -147,7 +147,7 @@ public class Enemy {
 	
 	public void render(OrthogonalTiledMapRenderer tmr){
 		stateTime += Gdx.graphics.getDeltaTime();
-        currentFrame = moveAnimation.getKeyFrame(stateTime, true);
+        currentFrame = (TextureRegion) moveAnimation.getKeyFrame(stateTime, true);
         
 		tmr.getBatch().begin();
 		tmr.getBatch().draw(currentFrame, (body.getPosition().x * ArchieConstantVariables.PPM) - dimension / 2, (body.getPosition().y * ArchieConstantVariables.PPM) - dimension / 2, dimension, dimension);

@@ -43,11 +43,11 @@ public class TheEndScreen implements Screen{
 		validateSound = Gdx.audio.newSound(Gdx.files.internal(ArchieConstantVariables.soundPath[0]));
 		mainMusic = Gdx.audio.newMusic(Gdx.files.internal(ArchieConstantVariables.musicPath[0]));
 		mainMusic.setLooping(true);
-		leaf = new ArchieRainAnimation("res/pic/leaf.png", 200, 200, 200, 'y', 1024, 600, 800000000);
-		background = new Texture(Gdx.files.internal("res/pic/main/archiemain3.png"));
-		theEnd = new Texture(Gdx.files.internal("res/pic/theEnd.png"));
+		leaf = new ArchieRainAnimation("pic/leaf.png", 200, 200, 200, 'y', 1024, 600, 800000000);
+		background = new Texture(Gdx.files.internal("pic/main/archiemain3.png"));
+		theEnd = new Texture(Gdx.files.internal("pic/theEnd.png"));
 		
-		skin = new Skin(Gdx.files.internal("res/skins/uiskin.json"), new TextureAtlas(Gdx.files.internal("res/skins/uiskin.atlas")));
+		skin = new Skin(Gdx.files.internal("skins/uiskin.json"), new TextureAtlas(Gdx.files.internal("skins/uiskin.atlas")));
 		table = new Table();
 		
 		if(isEnd){
@@ -104,7 +104,7 @@ public class TheEndScreen implements Screen{
 		if(isEnd){
 			game.font72.setColor(Color.BLACK);
 			game.font72.draw(game.batch, "THE END", 50, Archie.HEIGHT - 75);
-			game.font36.drawMultiLine(game.batch, "archie finally\ngot out from\nthe forrest.\nand he lives\nhappily ever\nafter.", 325 , Archie.HEIGHT - 300);
+			game.font36.draw(game.batch, "archie finally\ngot out from\nthe forrest.\nand he lives\nhappily ever\nafter.", 325 , Archie.HEIGHT - 300);
 			game.batch.draw(theEnd, 50, 25);
 		}
 		if(!isEnd){
@@ -112,9 +112,9 @@ public class TheEndScreen implements Screen{
 		}
 		game.font36.draw(game.batch, credits[0], Archie.WIDTH / 2, Archie.HEIGHT - 25);
 		game.font36.draw(game.batch, credits[1], Archie.WIDTH / 2 + 25, Archie.HEIGHT - 75);
-		game.font36.drawMultiLine(game.batch, credits[2], Archie.WIDTH / 2 + 50, Archie.HEIGHT - 100);
-		game.font36.drawMultiLine(game.batch, credits[3], Archie.WIDTH / 2 + 25, Archie.HEIGHT - 300);
-		game.font36.drawMultiLine(game.batch, credits[4], Archie.WIDTH / 2 + 50, Archie.HEIGHT - 350);
+		game.font36.draw(game.batch, credits[2], Archie.WIDTH / 2 + 50, Archie.HEIGHT - 100);
+		game.font36.draw(game.batch, credits[3], Archie.WIDTH / 2 + 25, Archie.HEIGHT - 300);
+		game.font36.draw(game.batch, credits[4], Archie.WIDTH / 2 + 50, Archie.HEIGHT - 350);
 		game.batch.end();
 		game.stage.act(arg0);
 		game.stage.draw();

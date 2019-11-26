@@ -48,11 +48,11 @@ public class LevelSelectScreen implements Screen{
 		mainMusic = Gdx.audio.newMusic(Gdx.files.internal(ArchieConstantVariables.musicPath[0]));
 		mainMusic.setLooping(true);
 		
-		background = new Texture(Gdx.files.internal("res/pic/main/archiemain4.png"));
-		skin = new Skin(Gdx.files.internal("res/skins/uiskin.json"), new TextureAtlas(Gdx.files.internal("res/skins/uiskin.atlas")));
+		background = new Texture(Gdx.files.internal("pic/main/archiemain4.png"));
+		skin = new Skin(Gdx.files.internal("skins/uiskin.json"), new TextureAtlas(Gdx.files.internal("skins/uiskin.atlas")));
 		table = new Table();
 		table2 = new Table();
-		leaf = new ArchieRainAnimation("res/pic/leaf.png", 200, 200, 200, 'y', 1024, 600, 800000000);
+		leaf = new ArchieRainAnimation("pic/leaf.png", 200, 200, 200, 'y', 1024, 600, 800000000);
 			
 		back = new TextButton("Back", skin);
 		credit = new TextButton("Credit", skin);

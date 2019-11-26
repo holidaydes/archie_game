@@ -78,7 +78,7 @@ public class SettingsScreen implements Screen{
 	public SettingsScreen(Archie game){
 		this.game = game;
 		
-		skin = new Skin(Gdx.files.internal("res/skins/uiskin.json"), new TextureAtlas(Gdx.files.internal("res/skins/uiskin.atlas")));
+		skin = new Skin(Gdx.files.internal("skins/uiskin.json"), new TextureAtlas(Gdx.files.internal("skins/uiskin.atlas")));
 		table = new Table();
 		table2 = new Table();
 		backSound = Gdx.audio.newSound(Gdx.files.internal(ArchieConstantVariables.soundPath[1]));
@@ -87,7 +87,7 @@ public class SettingsScreen implements Screen{
 		mainMusic = Gdx.audio.newMusic(Gdx.files.internal(ArchieConstantVariables.musicPath[0]));
 		mainMusic.setLooping(true);
 		
-		pow = new ArchieRainAnimation("res/pic/pow.png", 200, 200, 250, 'x', 1024, 600, 1000000000);
+		pow = new ArchieRainAnimation("pic/pow.png", 200, 200, 250, 'x', 1024, 600, 1000000000);
 		
 		setDefault = new TextButton("Set Default", skin);
 		resetSave = new TextButton("Reset saved game", skin);
@@ -155,8 +155,8 @@ public class SettingsScreen implements Screen{
 		pow.animate(game.batch);
 		game.batch.begin();
 		game.font36.setColor(Color.BLACK);
-		game.font36.drawMultiLine(game.batch, "TIP: for the controller users\n- first push button on the controller\n- then click on desired textfield", Archie.WIDTH-450, Archie.HEIGHT-150);
-		game.font36.drawMultiLine(game.batch, "TIP: about buttons...\n- set default: both keyboard and controller\nset to default\n- reset save game: delete your saved game", Archie.WIDTH-450, Archie.HEIGHT-350);
+		game.font36.draw(game.batch, "TIP: for the controller users\n- first push button on the controller\n- then click on desired textfield", Archie.WIDTH-450, Archie.HEIGHT-150);
+		game.font36.draw(game.batch, "TIP: about buttons...\n- set default: both keyboard and controller\nset to default\n- reset save game: delete your saved game", Archie.WIDTH-450, Archie.HEIGHT-350);
 		game.font72.setColor(Color.BLACK);
 		game.font72.draw(game.batch, "Settings", Archie.WIDTH-250, Archie.HEIGHT-20);
 		game.batch.end();

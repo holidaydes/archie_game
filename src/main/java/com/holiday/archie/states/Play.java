@@ -45,7 +45,6 @@ import com.holiday.archie.entities.EnemySword;
 import com.holiday.archie.entities.Medickit;
 import com.holiday.archie.entities.Player;
 import com.holiday.archie.entities.Trap;
-import com.holiday.archie.states.StartScreen;
 
 public class Play implements Screen{
 	
@@ -227,12 +226,12 @@ public class Play implements Screen{
 		isPlayerShield = false;
 		
 		if(level == 0 || level == 1 || level == 4){
-			sky = new TextureRegion(new Texture(Gdx.files.internal("res/levels/levelTextures/background.png")), 0, 1800, 1024, 600);
+			sky = new TextureRegion(new Texture(Gdx.files.internal("levels/levelTextures/background.png")), 0, 1800, 1024, 600);
 		} else {
-			sky = new TextureRegion(new Texture(Gdx.files.internal("res/levels/levelTextures/background.png")), 0, 1200, 1024, 600);
+			sky = new TextureRegion(new Texture(Gdx.files.internal("levels/levelTextures/background.png")), 0, 1200, 1024, 600);
 		}
-		clouds = new TextureRegion(new Texture(Gdx.files.internal("res/levels/levelTextures/background.png")), 0, 600, 1024, 600);
-		forest = new TextureRegion(new Texture(Gdx.files.internal("res/levels/levelTextures/background.png")), 0, 0, 1024, 600);
+		clouds = new TextureRegion(new Texture(Gdx.files.internal("levels/levelTextures/background.png")), 0, 600, 1024, 600);
+		forest = new TextureRegion(new Texture(Gdx.files.internal("levels/levelTextures/background.png")), 0, 0, 1024, 600);
 		background = new ArchieBackgroundAnimation[3];
 		background[0] = new ArchieBackgroundAnimation(sky, camera, 0f);
 		background[1] = new ArchieBackgroundAnimation(clouds, camera, 0.5f);
@@ -979,7 +978,7 @@ public class Play implements Screen{
 	private void hud(){
 		if(debugModeOn){
 			game.font36.setColor(Color.WHITE);
-			game.font36.drawMultiLine(game.batch, "fps: " + Gdx.graphics.getFramesPerSecond()+"\nplayer position: x: " + player.getBody().getPosition().x + " y: " + player.getBody().getPosition().y + "\nmap dimensions: width: " + layer.getWidth()+" height: " + layer.getHeight()+"\ntile size: " + Float.toString(tileSize) + "\ncoins: " + acl.getCoins()+"\nhealth: " + lifeBar, 10, Archie.HEIGHT-10);
+			game.font36.draw(game.batch, "fps: " + Gdx.graphics.getFramesPerSecond()+"\nplayer position: x: " + player.getBody().getPosition().x + " y: " + player.getBody().getPosition().y + "\nmap dimensions: width: " + layer.getWidth()+" height: " + layer.getHeight()+"\ntile size: " + Float.toString(tileSize) + "\ncoins: " + acl.getCoins()+"\nhealth: " + lifeBar, 10, Archie.HEIGHT-10);
 		}
 		if(!debugModeOn){		
 			if(lifeBar >= 80){

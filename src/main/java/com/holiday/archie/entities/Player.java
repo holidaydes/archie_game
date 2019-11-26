@@ -96,7 +96,7 @@ public class Player {
 	
 	public void render(OrthogonalTiledMapRenderer tmr){
 		stateTime += Gdx.graphics.getDeltaTime();
-        currentFrame = moveAnimation.getKeyFrame(stateTime, true);
+        currentFrame = (TextureRegion) moveAnimation.getKeyFrame(stateTime, true);
         
 		tmr.getBatch().begin();
 		if(move){

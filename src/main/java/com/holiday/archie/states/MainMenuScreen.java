@@ -45,7 +45,7 @@ public class MainMenuScreen implements Screen{
 		this.game = game;
 		
 		table = new Table();
-		skin = new Skin(Gdx.files.internal("res/skins/uiskin.json"), new TextureAtlas(Gdx.files.internal("res/skins/uiskin.atlas")));
+		skin = new Skin(Gdx.files.internal("skins/uiskin.json"), new TextureAtlas(Gdx.files.internal("skins/uiskin.atlas")));
 		back = Gdx.audio.newSound(Gdx.files.internal(ArchieConstantVariables.soundPath[1]));
 		validate = Gdx.audio.newSound(Gdx.files.internal(ArchieConstantVariables.soundPath[0]));
 		mainMusic = Gdx.audio.newMusic(Gdx.files.internal(ArchieConstantVariables.musicPath[0]));
@@ -55,8 +55,8 @@ public class MainMenuScreen implements Screen{
 		
 		rnd = new Random();
 		mainBackgroundNumber = rnd.nextInt(3);
-		background = new Texture(Gdx.files.internal("res/pic/main/archiemain"+mainBackgroundNumber+".png"));
-		leaf = new ArchieRainAnimation("res/pic/leaf.png", 200, 200, 200, 'y', 1024, 600, 800000000);
+		background = new Texture(Gdx.files.internal("pic/main/archiemain"+mainBackgroundNumber+".png"));
+		leaf = new ArchieRainAnimation("pic/leaf.png", 200, 200, 200, 'y', 1024, 600, 800000000);
 		
 		levelNumber = 0;
 		for(int i = 1; i < 5; i++){

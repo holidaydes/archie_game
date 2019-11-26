@@ -80,7 +80,7 @@ public class StartScreen implements Screen{
 		this.game = game;
 		mapNumber = level;
 
-		skin = new Skin(Gdx.files.internal("res/skins/uiskin.json"), new TextureAtlas(Gdx.files.internal("res/skins/uiskin.atlas")));
+		skin = new Skin(Gdx.files.internal("skins/uiskin.json"), new TextureAtlas(Gdx.files.internal("skins/uiskin.atlas")));
 		table = new Table();
 		table2 = new Table();
 		backSound = Gdx.audio.newSound(Gdx.files.internal(ArchieConstantVariables.soundPath[1]));
@@ -171,11 +171,11 @@ public class StartScreen implements Screen{
 		game.batch.draw(shield[itemShield], 475, 350);
 		game.font36.draw(game.batch,"armour yourself from " + game.pref.getCoins() + " coins", 280, Archie.HEIGHT);
 		game.font72.setColor(Color.BLACK);
-		game.font72.drawMultiLine(game.batch, ArchieConstantVariables.levelName[mapNumber], 800, Archie.HEIGHT - 20);
-		game.font36.drawMultiLine(game.batch, ArchieConstantVariables.tellATale[mapNumber],  800, Archie.HEIGHT - 170);
-		game.font36.drawMultiLine(game.batch,"- mass: " + massSkin + "\n- stamina: " + stamina + "\n- health: " + health, 50, 350);
-		game.font36.drawMultiLine(game.batch,"- mass: " + massSword + "\n- attack: " + attack, 275, 350);
-		game.font36.drawMultiLine(game.batch,"- mass: " + massShield + "\n- defense: " + defense, 500, 350);
+		game.font72.draw(game.batch, ArchieConstantVariables.levelName[mapNumber], 800, Archie.HEIGHT - 20);
+		game.font36.draw(game.batch, ArchieConstantVariables.tellATale[mapNumber],  800, Archie.HEIGHT - 170);
+		game.font36.draw(game.batch,"- mass: " + massSkin + "\n- stamina: " + stamina + "\n- health: " + health, 50, 350);
+		game.font36.draw(game.batch,"- mass: " + massSword + "\n- attack: " + attack, 275, 350);
+		game.font36.draw(game.batch,"- mass: " + massShield + "\n- defense: " + defense, 500, 350);
 		game.batch.end();
 		update();
 		shapeRenderer.begin(ShapeType.Line);
@@ -474,7 +474,7 @@ public class StartScreen implements Screen{
 		}
 		
 
-		game.font36.drawMultiLine(game.batch, "equiped items:\n- skin: " + getItemName(equipedSkin) + "\n- sword: " + getItemName(equipedSword) + "\n- shield: " + getItemName(equipedShield), 800 , 300);
+		game.font36.draw(game.batch, "equiped items:\n- skin: " + getItemName(equipedSkin) + "\n- sword: " + getItemName(equipedSword) + "\n- shield: " + getItemName(equipedShield), 800 , 300);
 		game.batch.end();
 	}
 	
