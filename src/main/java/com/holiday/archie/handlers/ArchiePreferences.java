@@ -2,289 +2,294 @@ package com.holiday.archie.handlers;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
+import com.holiday.archie.elements.PlayerBody;
+import com.holiday.archie.elements.PlayerShield;
+import com.holiday.archie.elements.PlayerSword;
 
 public class ArchiePreferences {
-	private static final String PREFS_COIN = "coin";
+    private static final String COIN = "coin";
 
-	private static final String PREFS_EQUIPED_SKIN = "equipedSkin";
-	private static final String PREFS_EQUIPED_SWORD = "equipedSword";
-	private static final String PREFS_EQUIPED_SHIELD = "equipedShield";
-	
-	private static final String PREFS_SKIN0 = "skin0";
-	private static final String PREFS_SKIN1 = "skin1";
-	private static final String PREFS_SKIN2 = "skin2";
-	private static final String PREFS_SKIN3 = "skin3";
-	private static final String PREFS_SKIN4 = "skin4";
-	
-	private static final String PREFS_SWORD0 = "sword0";
-	private static final String PREFS_SWORD1 = "sword1";
-	private static final String PREFS_SWORD2 = "sword2";
-	private static final String PREFS_SWORD3 = "sword3";
-	private static final String PREFS_SWORD4 = "sword4";
-	
-	private static final String PREFS_SHIELD0 = "shield0";
-	private static final String PREFS_SHIELD1 = "shield1";
-	private static final String PREFS_SHIELD2 = "shield2";
-	private static final String PREFS_SHIELD3 = "shield3";
-	private static final String PREFS_SHIELD4 = "shield4";
-	
-	private static final String PREFS_LEVEL0 = "level0";
-	private static final String PREFS_LEVEL1 = "level1";
-	private static final String PREFS_LEVEL2 = "level2";
-	private static final String PREFS_LEVEL3 = "level3";
-	private static final String PREFS_LEVEL4 = "level4";
-	
-	private static final String PREFS_NAME = "archie_saves";
+    private static final String EQUIPPED_BODY = "equippedBody";
+    private static final String EQUIPPED_SWORD = "equippedSword";
+    private static final String EQUIPPED_SHIELD = "equippedShield";
 
-	private Preferences preferences;
+    private static final String BODY_WOOD = "bodyWood";
+    private static final String BODY_IRON = "bodyIron";
+    private static final String BODY_GOLD = "bodyGold";
+    private static final String BODY_DIAMOND = "bodyDiamond";
+    private static final String BODY_SKETCH = "bodySketch";
 
-	public ArchiePreferences() {
-		
-	}
+    private static final String SWORD_WOOD = "swordWood";
+    private static final String SWORD_IRON = "swordIron";
+    private static final String SWORD_GOLD = "swordGold";
+    private static final String SWORD_DIAMOND = "swordDiamond";
+    private static final String SWORD_SKETCH = "swordSketch";
 
-	protected Preferences getPrefs(){
-		if(preferences==null){
-			 preferences = Gdx.app.getPreferences(PREFS_NAME);
-			 //resetSavedGame(); //LOL
-		}
-		return preferences;
-	}
+    private static final String SHIELD_WOOD = "shieldWood";
+    private static final String SHIELD_IRON = "shieldIron";
+    private static final String SHIELD_GOLD = "shieldGold";
+    private static final String SHIELD_DIAMOND = "shieldDiamond";
+    private static final String SHIELD_SKETCH = "shieldSketch";
 
-	public int getCoins() {
-	    return getPrefs().getInteger(PREFS_COIN, 0);
-	}
+    private static final String PREFS_LEVEL0 = "level0";
+    private static final String PREFS_LEVEL1 = "level1";
+    private static final String PREFS_LEVEL2 = "level2";
+    private static final String PREFS_LEVEL3 = "level3";
+    private static final String PREFS_LEVEL4 = "level4";
 
-	public void setCoin(int amount) {
-	    getPrefs().putInteger(PREFS_COIN, getPrefs().getInteger(PREFS_COIN)+amount);
-	    getPrefs().flush();
-	}
+    private static final String NAME = "archie_saves";
 
-	public int getEquipedSkin() {
-	    return getPrefs().getInteger(PREFS_EQUIPED_SKIN, 0);
-	}
+    private Preferences preferences;
 
-	public void setEquipedSkin(int number) {
-	    getPrefs().putInteger(PREFS_EQUIPED_SKIN, number);
-	    getPrefs().flush();
-	}
-	
-	public int getEquipedSword() {
-	    return getPrefs().getInteger(PREFS_EQUIPED_SWORD, 0);
-	}
+    public ArchiePreferences() {
 
-	public void setEquipedSword(int number) {
-	    getPrefs().putInteger(PREFS_EQUIPED_SWORD, number);
-	    getPrefs().flush();
-	}
-	
-	public int getEquipedShield() {
-	    return getPrefs().getInteger(PREFS_EQUIPED_SHIELD, 0);
-	}
+    }
 
-	public void setEquipedShield(int number) {
-	    getPrefs().putInteger(PREFS_EQUIPED_SHIELD, number);
-	    getPrefs().flush();
-	}
+    protected Preferences getPrefs() {
+        if (preferences == null) {
+            preferences = Gdx.app.getPreferences(NAME);
+            //resetSavedGame(); //LOL
+        }
+        return preferences;
+    }
 
-	public boolean getEnabledSkin(int number){
-		boolean enabled = false;
-		switch(number){
-		case 0:
-			enabled = getPrefs().getBoolean(PREFS_SKIN0, true);
-			break;
-		case 1:
-			enabled = getPrefs().getBoolean(PREFS_SKIN1, false);
-			break;
-		case 2:
-			enabled = getPrefs().getBoolean(PREFS_SKIN2, false);
-			break;
-		case 3:
-			enabled = getPrefs().getBoolean(PREFS_SKIN3, false);
-			break;
-		case 4:
-			enabled = getPrefs().getBoolean(PREFS_SKIN4, false);
-			break;
-		}
-		return enabled;
-	}
-	
-	public void setEnabledSkin(int number){
-		switch(number){
-		case 0:
-			getPrefs().putBoolean(PREFS_SKIN0, true);
-			break;
-		case 1:
-			getPrefs().putBoolean(PREFS_SKIN1, true);
-			break;
-		case 2:
-			getPrefs().putBoolean(PREFS_SKIN2, true);
-			break;
-		case 3:
-			getPrefs().putBoolean(PREFS_SKIN3, true);
-			break;
-		case 4:
-			getPrefs().putBoolean(PREFS_SKIN4, true);
-			break;
-		}
-		getPrefs().flush();
-	}
-	
-	public boolean getEnabledSword(int number){
-		boolean enabled = false;
-		switch(number){
-		case 0:
-			enabled = getPrefs().getBoolean(PREFS_SWORD0, true);
-			break;
-		case 1:
-			enabled = getPrefs().getBoolean(PREFS_SWORD1, false);
-			break;
-		case 2:
-			enabled = getPrefs().getBoolean(PREFS_SWORD2, false);
-			break;
-		case 3:
-			enabled = getPrefs().getBoolean(PREFS_SWORD3, false);
-			break;
-		case 4:
-			enabled = getPrefs().getBoolean(PREFS_SWORD4, false);
-			break;
-		}
-		return enabled;
-	}
-	
-	public void setEnabledSword(int number){
-		switch(number){
-		case 0:
-			getPrefs().putBoolean(PREFS_SWORD0, true);
-			break;
-		case 1:
-			getPrefs().putBoolean(PREFS_SWORD1, true);
-			break;
-		case 2:
-			getPrefs().putBoolean(PREFS_SWORD2, true);
-			break;
-		case 3:
-			getPrefs().putBoolean(PREFS_SWORD3, true);
-			break;
-		case 4:
-			getPrefs().putBoolean(PREFS_SWORD4, true);
-			break;
-		}
-		getPrefs().flush();
-	}
-	public boolean getEnabledShield(int number){
-		boolean enabled = false;
-		switch(number){
-		case 0:
-			enabled = getPrefs().getBoolean(PREFS_SHIELD0, true);
-			break;
-		case 1:
-			enabled = getPrefs().getBoolean(PREFS_SHIELD1, false);
-			break;
-		case 2:
-			enabled = getPrefs().getBoolean(PREFS_SHIELD2, false);
-			break;
-		case 3:
-			enabled = getPrefs().getBoolean(PREFS_SHIELD3, false);
-			break;
-		case 4:
-			enabled = getPrefs().getBoolean(PREFS_SHIELD4, false);
-			break;
-		}
-		return enabled;
-	}
-	
-	public void setEnabledShield(int number){
-		switch(number){
-		case 0:
-			getPrefs().putBoolean(PREFS_SHIELD0, true);
-			break;
-		case 1:
-			getPrefs().putBoolean(PREFS_SHIELD1, true);
-			break;
-		case 2:
-			getPrefs().putBoolean(PREFS_SHIELD2, true);
-			break;
-		case 3:
-			getPrefs().putBoolean(PREFS_SHIELD3, true);
-			break;
-		case 4:
-			getPrefs().putBoolean(PREFS_SHIELD4, true);
-			break;
-		}
-		getPrefs().flush();
-	}
-	public boolean getLevelEnabled(int number) {
-		boolean enabled = false;
-		switch(number){
-		case 0:
-			enabled = getPrefs().getBoolean(PREFS_LEVEL0, true);
-			break;
-		case 1:
-			enabled = getPrefs().getBoolean(PREFS_LEVEL1, false);
-			break;
-		case 2:
-			enabled = getPrefs().getBoolean(PREFS_LEVEL2, false);
-			break;
-		case 3:
-			enabled = getPrefs().getBoolean(PREFS_LEVEL3, false);
-			break;
-		case 4:
-			enabled = getPrefs().getBoolean(PREFS_LEVEL4, false);
-			break;
-		}
-		return enabled;
-	}
+    public int getCoins() {
+        return getPrefs().getInteger(COIN, 0);
+    }
 
-	public void setLevelEnabled(int number){
-		switch(number){
-		case 0:
-			getPrefs().putBoolean(PREFS_LEVEL0, true);
-			break;
-		case 1:
-			getPrefs().putBoolean(PREFS_LEVEL1, true);
-			break;
-		case 2:
-			getPrefs().putBoolean(PREFS_LEVEL2, true);
-			break;
-		case 3:
-			getPrefs().putBoolean(PREFS_LEVEL3, true);
-			break;
-		case 4:
-			getPrefs().putBoolean(PREFS_LEVEL4, true);
-			break;
-		}
-		getPrefs().flush();
-	}
-	
-	//reset saved game
-	public void resetSavedGame() {
-	    getPrefs().putInteger(PREFS_COIN, 0);
-	    
-	    getPrefs().putInteger(PREFS_EQUIPED_SKIN, 0);
-	    getPrefs().putInteger(PREFS_EQUIPED_SWORD, 0);
-	    getPrefs().putInteger(PREFS_EQUIPED_SHIELD, 0);
-	    
-	    getPrefs().putBoolean(PREFS_SKIN1, false);
-	    getPrefs().putBoolean(PREFS_SKIN2, false);
-	    getPrefs().putBoolean(PREFS_SKIN3, false);
-	    getPrefs().putBoolean(PREFS_SKIN4, false);
-	    
-	    getPrefs().putBoolean(PREFS_SWORD1, false);
-	    getPrefs().putBoolean(PREFS_SWORD2, false);
-	    getPrefs().putBoolean(PREFS_SWORD3, false);
-	    getPrefs().putBoolean(PREFS_SWORD4, false);
-	    
-	    getPrefs().putBoolean(PREFS_SHIELD1, false);
-	    getPrefs().putBoolean(PREFS_SHIELD2, false);
-	    getPrefs().putBoolean(PREFS_SHIELD3, false);
-	    getPrefs().putBoolean(PREFS_SHIELD4, false);
-	    
-	    getPrefs().putBoolean(PREFS_LEVEL1, false);
-	    getPrefs().putBoolean(PREFS_LEVEL2, false);
-	    getPrefs().putBoolean(PREFS_LEVEL3, false);
-	    getPrefs().putBoolean(PREFS_LEVEL4, false);
+    public void setCoin(int amount) {
+        getPrefs().putInteger(COIN, getPrefs().getInteger(COIN) + amount);
+        getPrefs().flush();
+    }
 
-	    getPrefs().flush();
-	}
+    public int getEquippedBody() {
+        return getPrefs().getInteger(EQUIPPED_BODY, PlayerBody.WOOD.id);
+    }
+
+    public void setEquippedBody(int id) {
+        getPrefs().putInteger(EQUIPPED_BODY, id);
+        getPrefs().flush();
+    }
+
+    public int getEquippedSword() {
+        return getPrefs().getInteger(EQUIPPED_SWORD, PlayerSword.WOOD.id);
+    }
+
+    public void setEquippedSword(int id) {
+        getPrefs().putInteger(EQUIPPED_SWORD, id);
+        getPrefs().flush();
+    }
+
+    public int getEquippedShield() {
+        return getPrefs().getInteger(EQUIPPED_SHIELD, PlayerShield.WOOD.id);
+    }
+
+    public void setEquippedShield(int id) {
+        getPrefs().putInteger(EQUIPPED_SHIELD, id);
+        getPrefs().flush();
+    }
+
+    public boolean getEnabledSkin(int number) {
+        boolean enabled = false;
+        switch (number) {
+            case 0:
+                enabled = getPrefs().getBoolean(BODY_WOOD, true);
+                break;
+            case 1:
+                enabled = getPrefs().getBoolean(BODY_IRON, false);
+                break;
+            case 2:
+                enabled = getPrefs().getBoolean(BODY_GOLD, false);
+                break;
+            case 3:
+                enabled = getPrefs().getBoolean(BODY_DIAMOND, false);
+                break;
+            case 4:
+                enabled = getPrefs().getBoolean(BODY_SKETCH, false);
+                break;
+        }
+        return enabled;
+    }
+
+    public void setEnabledSkin(int number) {
+        switch (number) {
+            case 0:
+                getPrefs().putBoolean(BODY_WOOD, true);
+                break;
+            case 1:
+                getPrefs().putBoolean(BODY_IRON, true);
+                break;
+            case 2:
+                getPrefs().putBoolean(BODY_GOLD, true);
+                break;
+            case 3:
+                getPrefs().putBoolean(BODY_DIAMOND, true);
+                break;
+            case 4:
+                getPrefs().putBoolean(BODY_SKETCH, true);
+                break;
+        }
+        getPrefs().flush();
+    }
+
+    public boolean getEnabledSword(int number) {
+        boolean enabled = false;
+        switch (number) {
+            case 0:
+                enabled = getPrefs().getBoolean(SWORD_WOOD, true);
+                break;
+            case 1:
+                enabled = getPrefs().getBoolean(SWORD_IRON, false);
+                break;
+            case 2:
+                enabled = getPrefs().getBoolean(SWORD_GOLD, false);
+                break;
+            case 3:
+                enabled = getPrefs().getBoolean(SWORD_DIAMOND, false);
+                break;
+            case 4:
+                enabled = getPrefs().getBoolean(SWORD_SKETCH, false);
+                break;
+        }
+        return enabled;
+    }
+
+    public void setEnabledSword(int number) {
+        switch (number) {
+            case 0:
+                getPrefs().putBoolean(SWORD_WOOD, true);
+                break;
+            case 1:
+                getPrefs().putBoolean(SWORD_IRON, true);
+                break;
+            case 2:
+                getPrefs().putBoolean(SWORD_GOLD, true);
+                break;
+            case 3:
+                getPrefs().putBoolean(SWORD_DIAMOND, true);
+                break;
+            case 4:
+                getPrefs().putBoolean(SWORD_SKETCH, true);
+                break;
+        }
+        getPrefs().flush();
+    }
+
+    public boolean getEnabledShield(int number) {
+        boolean enabled = false;
+        switch (number) {
+            case 0:
+                enabled = getPrefs().getBoolean(SHIELD_WOOD, true);
+                break;
+            case 1:
+                enabled = getPrefs().getBoolean(SHIELD_IRON, false);
+                break;
+            case 2:
+                enabled = getPrefs().getBoolean(SHIELD_GOLD, false);
+                break;
+            case 3:
+                enabled = getPrefs().getBoolean(SHIELD_DIAMOND, false);
+                break;
+            case 4:
+                enabled = getPrefs().getBoolean(SHIELD_SKETCH, false);
+                break;
+        }
+        return enabled;
+    }
+
+    public void setEnabledShield(int number) {
+        switch (number) {
+            case 0:
+                getPrefs().putBoolean(SHIELD_WOOD, true);
+                break;
+            case 1:
+                getPrefs().putBoolean(SHIELD_IRON, true);
+                break;
+            case 2:
+                getPrefs().putBoolean(SHIELD_GOLD, true);
+                break;
+            case 3:
+                getPrefs().putBoolean(SHIELD_DIAMOND, true);
+                break;
+            case 4:
+                getPrefs().putBoolean(SHIELD_SKETCH, true);
+                break;
+        }
+        getPrefs().flush();
+    }
+
+    public boolean getLevelEnabled(int number) {
+        boolean enabled = false;
+        switch (number) {
+            case 0:
+                enabled = getPrefs().getBoolean(PREFS_LEVEL0, true);
+                break;
+            case 1:
+                enabled = getPrefs().getBoolean(PREFS_LEVEL1, false);
+                break;
+            case 2:
+                enabled = getPrefs().getBoolean(PREFS_LEVEL2, false);
+                break;
+            case 3:
+                enabled = getPrefs().getBoolean(PREFS_LEVEL3, false);
+                break;
+            case 4:
+                enabled = getPrefs().getBoolean(PREFS_LEVEL4, false);
+                break;
+        }
+        return enabled;
+    }
+
+    public void setLevelEnabled(int number) {
+        switch (number) {
+            case 0:
+                getPrefs().putBoolean(PREFS_LEVEL0, true);
+                break;
+            case 1:
+                getPrefs().putBoolean(PREFS_LEVEL1, true);
+                break;
+            case 2:
+                getPrefs().putBoolean(PREFS_LEVEL2, true);
+                break;
+            case 3:
+                getPrefs().putBoolean(PREFS_LEVEL3, true);
+                break;
+            case 4:
+                getPrefs().putBoolean(PREFS_LEVEL4, true);
+                break;
+        }
+        getPrefs().flush();
+    }
+
+    //reset saved game
+    public void resetSavedGame() {
+        getPrefs().putInteger(COIN, 0);
+
+        getPrefs().putInteger(EQUIPPED_BODY, PlayerBody.WOOD.id);
+        getPrefs().putInteger(EQUIPPED_SWORD, PlayerSword.WOOD.id);
+        getPrefs().putInteger(EQUIPPED_SHIELD, PlayerShield.WOOD.id);
+
+        getPrefs().putBoolean(BODY_IRON, false);
+        getPrefs().putBoolean(BODY_GOLD, false);
+        getPrefs().putBoolean(BODY_DIAMOND, false);
+        getPrefs().putBoolean(BODY_SKETCH, false);
+
+        getPrefs().putBoolean(SWORD_IRON, false);
+        getPrefs().putBoolean(SWORD_GOLD, false);
+        getPrefs().putBoolean(SWORD_DIAMOND, false);
+        getPrefs().putBoolean(SWORD_SKETCH, false);
+
+        getPrefs().putBoolean(SHIELD_IRON, false);
+        getPrefs().putBoolean(SHIELD_GOLD, false);
+        getPrefs().putBoolean(SHIELD_DIAMOND, false);
+        getPrefs().putBoolean(SHIELD_SKETCH, false);
+
+        getPrefs().putBoolean(PREFS_LEVEL1, false);
+        getPrefs().putBoolean(PREFS_LEVEL2, false);
+        getPrefs().putBoolean(PREFS_LEVEL3, false);
+        getPrefs().putBoolean(PREFS_LEVEL4, false);
+
+        getPrefs().flush();
+    }
 
 }

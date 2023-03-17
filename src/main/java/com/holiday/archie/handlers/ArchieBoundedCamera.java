@@ -4,39 +4,39 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 
 public class ArchieBoundedCamera extends OrthographicCamera {
 
-    private float xmin;
-    private float xmax;
-    private float ymin;
-    private float ymax;
+    private float xMin;
+    private float xMax;
+    private float yMin;
+    private float yMax;
 
     public ArchieBoundedCamera() {
-    	setBounds(0, 0, 0, 0);
+        setBounds(0, 0, 0, 0);
     }
 
-    public void setBounds(float xmin, float xmax, float ymin, float ymax) {
-        this.xmin = xmin;
-        this.xmax = xmax;
-        this.ymin = ymin;
-        this.ymax = ymax;
+    public void setBounds(float xMin, float xMax, float yMin, float yMax) {
+        this.xMin = xMin;
+        this.xMax = xMax;
+        this.yMin = yMin;
+        this.yMax = yMax;
     }
 
     public void setPosition(float x, float y) {
-    	position.set(x, y, 0);
+        position.set(x, y, 0);
         fixBounds();
     }
 
     private void fixBounds() {
-        if(position.x < xmin + viewportWidth / 2) {
-            position.x = xmin + viewportWidth / 2;
+        if (position.x < xMin + viewportWidth / 2) {
+            position.x = xMin + viewportWidth / 2;
         }
-        if(position.x > xmax - viewportWidth / 2) {
-            position.x = xmax - viewportWidth / 2;
+        if (position.x > xMax - viewportWidth / 2) {
+            position.x = xMax - viewportWidth / 2;
         }
-        if(position.y < ymin + viewportHeight / 2) {
-            position.y = ymin + viewportHeight / 2;
+        if (position.y < yMin + viewportHeight / 2) {
+            position.y = yMin + viewportHeight / 2;
         }
-        if(position.y > ymax - viewportHeight / 2) {
-            position.y = ymax - viewportHeight / 2;
+        if (position.y > yMax - viewportHeight / 2) {
+            position.y = yMax - viewportHeight / 2;
         }
     }
 

@@ -24,9 +24,7 @@ public final class Archie extends Game {
     public BitmapFont font36;
     public BitmapFont font72;
     public BitmapFont font192;
-    private FreeTypeFontGenerator generator;
-    private FreeTypeFontParameter parameter;
-    
+
 	public Camera camera;
 	public SpriteBatch batch;
 	public Stage stage;
@@ -37,8 +35,8 @@ public final class Archie extends Game {
     
 	@Override
 	public void create() {
-		generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/archie.ttf"));
-		parameter = new FreeTypeFontParameter();
+		FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/archie.ttf"));
+		FreeTypeFontParameter parameter = new FreeTypeFontParameter();
 		parameter.size = 28;
 		font36 = generator.generateFont(parameter);
 		parameter.size = 56;

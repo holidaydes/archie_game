@@ -10,7 +10,8 @@
     <packaging>jar</packaging>
 
     <properties>
-        <libGdxVersion>1.9.10</libGdxVersion>
+        <libGdxVersion>1.11.0</libGdxVersion>
+        <libGdxControllerVersion>2.2.2</libGdxControllerVersion>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -47,11 +48,11 @@
             <artifactId>gdx-backend-lwjgl</artifactId>
             <version>${libGdxVersion}</version>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>com.badlogicgames.gdx</groupId>
             <artifactId>gdx-platform</artifactId>
             <version>${libGdxVersion}</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>com.badlogicgames.gdx</groupId>
             <artifactId>gdx-platform</artifactId>
@@ -63,11 +64,11 @@
             <artifactId>gdx-box2d</artifactId>
             <version>${libGdxVersion}</version>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>com.badlogicgames.gdx</groupId>
             <artifactId>gdx-box2d-platform</artifactId>
             <version>${libGdxVersion}</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>com.badlogicgames.gdx</groupId>
             <artifactId>gdx-box2d-platform</artifactId>
@@ -75,31 +76,31 @@
             <classifier>natives-desktop</classifier>
         </dependency>
         <dependency>
-            <groupId>com.badlogicgames.gdx</groupId>
-            <artifactId>gdx-controllers</artifactId>
-            <version>${libGdxVersion}</version>
+            <groupId>com.badlogicgames.gdx-controllers</groupId>
+            <artifactId>gdx-controllers-core</artifactId>
+            <version>${libGdxControllerVersion}</version>
         </dependency>
         <dependency>
-            <groupId>com.badlogicgames.gdx</groupId>
+            <groupId>com.badlogicgames.gdx-controllers</groupId>
             <artifactId>gdx-controllers-desktop</artifactId>
-            <version>${libGdxVersion}</version>
+            <version>${libGdxControllerVersion}</version>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>com.badlogicgames.gdx</groupId>
             <artifactId>gdx-controllers-platform</artifactId>
-            <version>${libGdxVersion}</version>
+            <version>${libGdxControllerVersion}</version>
             <classifier>natives-desktop</classifier>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>com.badlogicgames.gdx</groupId>
             <artifactId>gdx-freetype</artifactId>
             <version>${libGdxVersion}</version>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>com.badlogicgames.gdx</groupId>
             <artifactId>gdx-freetype-platform</artifactId>
             <version>${libGdxVersion}</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>com.badlogicgames.gdx</groupId>
             <artifactId>gdx-freetype-platform</artifactId>
@@ -147,7 +148,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>com.holiday.archie.core.DesktopLanuncher</mainClass>
+                            <mainClass>com.holiday.archie.core.DesktopLauncher</mainClass>
                         </manifest>
                         <manifestEntries>
                             <Class-Path>.</Class-Path>
