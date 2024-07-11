@@ -81,7 +81,7 @@ public class ArchieContactListener implements ContactListener {
         //coin contact by player
         if (fa.getUserData() != null && fa.getUserData().equals("player") && !fb.getUserData().equals(ItemType.TRAP.layerName) && !fb.getUserData().equals("foot")) {
             if (fb.getUserData() != null && fb.getUserData().toString().startsWith(ItemType.COIN.layerName)) {
-                coinIdentity = Integer.parseInt(fb.getUserData().toString().substring(4));
+                coinIdentity = Integer.parseInt(fb.getUserData().toString().substring(5));
                 coins++;
             }
         }
