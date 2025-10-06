@@ -20,22 +20,8 @@ jobs:
       run: mvn -B package --file pom.xml
     - name: Move artifacts and zip them
       run: mkdir Archie && cp target/*.jar Archie && cp -r target/lib Archie && zip -r Archie.zip Archie
-    - name: Create release
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    - name: Create release and upload
+      uses: ncipollo/release-action@v1.20.0
       with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ github.ref }}
-        draft: false
-        prerelease: false
-    - name: Upload release asset
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ github.event.release.upload_url }}
-        asset_path: ./Archie.zip
-        asset_name: Archie.zip
-        asset_content_type: application/zip
+        name: Release ${{ github.ref }}
+        artifacts: Archie.zip
