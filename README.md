@@ -3,7 +3,7 @@
 
 This project is for studying libGDX and box2D. It is a desktop version of the game. It is a basic platform game with simple rpg elements and dumb AI.<br />
 This game include five levels which are created in Tiled map creator.<br />
-<p><strong>Requirements: Java 8</strong></p>
+<p><strong>Requirements: Java 21</strong></p>
 Some cheat codes:<br>
 <ul>
   <li>Push LEFT-CONTROL and 'D' button in game: show the real world</li>
@@ -11,7 +11,7 @@ Some cheat codes:<br>
   <li>Push LEFT-CONTROL and 'C' button in game, then type the following cheatcodes</li>
   <ul>
       <li>BIGMILLION - get one million coins</li>
-      <li>GETALLTHESTUFF - get all stuff</li>
+      <li>GETALLSTUFF - get all stuff</li>
       <li>YOUSHALLNOTPASS - get all levels</li>
       <li>IGNOREME - get invincible</li>
   </ul>
