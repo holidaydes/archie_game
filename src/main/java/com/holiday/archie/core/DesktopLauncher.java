@@ -1,16 +1,14 @@
 package com.holiday.archie.core;
 
-import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
-import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
+import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
+import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 
 public class DesktopLauncher {
 	public static void main(String[] args){
-		LwjglApplicationConfiguration cfg = new LwjglApplicationConfiguration();
-		cfg.title = Archie.TITLE;
-		cfg.width = Archie.WIDTH * Archie.SCALE;
-		cfg.height = Archie.HEIGHT * Archie.SCALE;
-		cfg.fullscreen = false;
+		Lwjgl3ApplicationConfiguration cfg = new Lwjgl3ApplicationConfiguration();
+		cfg.setTitle(Archie.TITLE);
+        cfg.setWindowedMode(Archie.WIDTH * Archie.SCALE, Archie.HEIGHT * Archie.SCALE);
 		
-		new LwjglApplication(new Archie(), cfg);
+		new Lwjgl3Application(new Archie(), cfg);
 	}
 }

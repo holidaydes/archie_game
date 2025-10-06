@@ -10,8 +10,8 @@
     <packaging>jar</packaging>
 
     <properties>
-        <libGdxVersion>1.12.1</libGdxVersion>
-        <libGdxControllerVersion>2.2.3</libGdxControllerVersion>
+        <libGdxVersion>1.13.5</libGdxVersion>
+        <libGdxControllerVersion>2.2.4</libGdxControllerVersion>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <maven.compiler.source>21</maven.compiler.source>
@@ -45,7 +45,7 @@
         </dependency>
         <dependency>
             <groupId>com.badlogicgames.gdx</groupId>
-            <artifactId>gdx-backend-lwjgl</artifactId>
+            <artifactId>gdx-backend-lwjgl3</artifactId>
             <version>${libGdxVersion}</version>
         </dependency>
         <!--<dependency>
@@ -114,7 +114,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.13.0</version>
+                <version>3.14.1</version>
                 <configuration>
                     <source>${maven.compiler.source}</source>
                     <target>${maven.compiler.target}</target>
