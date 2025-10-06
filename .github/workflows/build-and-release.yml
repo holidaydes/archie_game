@@ -23,5 +23,4 @@ jobs:
     - name: Create release and upload
       uses: ncipollo/release-action@v1.20.0
       with:
-        name: Release ${{ github.ref }}
         artifacts: Archie.zip
