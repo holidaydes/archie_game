@@ -18,11 +18,6 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
-      
-  publish-package:
-    runs-on: ubuntu-latest
-    needs: build-package
-    steps:
     - name: Move artifacts and zip them
       run: mkdir Archie && cp target/*.jar Archie && cp -r target/lib Archie && zip -r Archie.zip Archie
     - name: Create release
